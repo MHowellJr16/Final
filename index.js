@@ -1,18 +1,25 @@
 // API 1: "https://jsonplaceholder.typicode.com/users"
 // API 2: "https://jsonplaceholder.typicode.com/posts?userId=:id"
-const userListEl = document.querySelector(".user-list");
+
 
 async function main() {
   const users = await fetch("https://jsonplaceholder.typicode.com/users");
   const usersData = await users.json();
+  console.log(usersData); 
+  const userListEl = document.querySelector(".user-list")
   userListEl.innerHTML = usersData.map((user) => userHTML(user)).join("");
-  
   }
 
   main();
 
+  function showUserPosts(id) {
+    console.log(id);
+    // fetch posts for user.id
+    // display posts in modal
+  }
+
   function userHTML(user) {
-   return ` <div class="user-card">
+   return ` <div class="user-card" onclick = "showUserPosts(${user.id})">
               <div class="user-card__container">
                 <h3>${user.name}</h4>
                   <p><b>Email:</b> ${user.email}</p>
@@ -22,4 +29,4 @@ async function main() {
                   </a></p>
               </div> 
             </div> `;
-  }
+      }

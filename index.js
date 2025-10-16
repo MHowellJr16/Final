@@ -11,9 +11,9 @@ async function main() {
   main();
 
   function showUserPosts(id) {
-    console.log(id);
-    // fetch posts for user.id
-    // display posts in modal
+    localStorage.setItem("userId", id);
+    window.location.href = `${window.location.origin}user.html`;
+    
   }
 
   function userHTML(user) {

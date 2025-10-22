@@ -8,6 +8,7 @@ async function main() {
   userListEl.innerHTML = usersData.map((user) => userHTML(user)).join("");
   }
 
+  
   main();
 
   function showUserPosts(id) {
